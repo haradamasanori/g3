@@ -1,23 +1,11 @@
+workspace(name = "com_github_haradamasanori_g3")
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 
-#TODO(harada): name it
-#workspace(name = "com_github_cgrushko_proto_library")
-
-#http_archive(
-#  name = "com_google_absl",
-#  urls = ["https://github.com/abseil/abseil-cpp/archive/98eb410c93ad059f9bba1bf43f5bb916fc92a5ea.zip"],
-#  strip_prefix = "abseil-cpp-98eb410c93ad059f9bba1bf43f5bb916fc92a5ea",
-#)
-
-local_repository(
-# Name of the Abseil repository. This name is defined within Abseil's
-# WORKSPACE file, in its `workspace()` metadata
-name = "com_google_absl",
- 
-# NOTE: Bazel paths must be absolute paths. E.g., you can't use ~/Source
-path = "/home/harada/Documents/abseil/abseil-cpp",
+http_archive(
+  name = "com_google_absl",
+  urls = ["https://github.com/abseil/abseil-cpp/archive/98eb410c93ad059f9bba1bf43f5bb916fc92a5ea.zip"],
+  strip_prefix = "abseil-cpp-98eb410c93ad059f9bba1bf43f5bb916fc92a5ea",
 )
-
 
 http_archive(
   name = "rules_cc",
@@ -30,7 +18,6 @@ http_archive(
   urls = ["https://github.com/google/googletest/archive/011959aafddcd30611003de96cfd8d7a7685c700.zip"],
   strip_prefix = "googletest-011959aafddcd30611003de96cfd8d7a7685c700",
 )
-
 
 # https://github.com/bazelbuild/rules_proto
 http_archive(
